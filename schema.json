@@ -1,6 +1,520 @@
 {
   "Resources": [
     {
+      "Name": "AWS::ApiGateway::Account",
+      "Href": "aws-resource-apigateway-account.html",
+      "Properties": [
+        {
+          "Name": "CloudWatchRoleArn",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Amazon Resource Name (ARN) of an IAM role that has write access to\nCloudWatch Logs in your account.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::ApiKey",
+      "Href": "aws-resource-apigateway-apikey.html",
+      "Properties": [
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the purpose of the API key.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Enabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the API key can be used by clients.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the API key. If you don't specify a name, AWS\nCloudFormation generates a unique physical ID and uses that ID for the\nAPI key name. For more information, see Name Type.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StageKeys",
+          "Type": "List of Amazon API Gateway ApiKey StageKey",
+          "TypeHref": "aws-properties-apitgateway-apikey-stagekey.html",
+          "TypeName": "",
+          "DocString": "A list of stages to associated with this API key.",
+          "SyntaxExpression": "[ StageKey, ... ]"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Authorizer",
+      "Href": "aws-resource-apigateway-authorizer.html",
+      "Properties": [
+        {
+          "Name": "AuthorizerCredentials",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The credentials required for the authorizer. To specify an AWS\nIdentity and Access Management (IAM) role that API Gateway assumes,\nspecify the role's Amazon Resource Name (ARN). To use resource-based\npermissions on the AWS Lambda (Lambda) function, specify null.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "AuthorizerResultTtlInSeconds",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The time-to-live (TTL) period, in seconds, that specifies how long API\nGateway caches authorizer results. If you specify a value greater than\n0, API Gateway caches the authorizer responses. By default, API\nGateway sets this property to 300. The maximum value is 3600, or 1\nhour.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "AuthorizerUri",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The authorizer's Uniform Resource Identifier (URI). If you specify\nTOKEN for the authorizer's Type property, specify a Lambda function\nURI, which has the form arn:aws:apigateway:region:lambda:path/path.\nThe path usually has the form\n/2015-03-31/functions/LambdaFunctionARN/invocations.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "IdentitySource",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The source of the identity in an incoming request. If you specify\nTOKEN for the authorizer's Type property, specify a mapping\nexpression. The custom header mapping expression has the form\nmethod.request.header.name, where name is the name of a custom\nauthorization header that clients submit as part of their requests.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "IdentityValidationExpression",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A validation expression for the incoming identity. If you specify\nTOKEN for the authorizer's Type property, specify a regular\nexpression. API Gateway uses the expression to attempt to match the\nincoming client token, and proceeds if the token matches. If the token\ndoesn't match, API Gateway responds with a 401 (unauthorized request)\nerror code.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name of the authorizer.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the RestApi resource in which API Gateway creates the\nauthorizer.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Type",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The type of the authorizer, such as TOKEN.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::BasePathMapping",
+      "Href": "aws-resource-apigateway-basepathmapping.html",
+      "Properties": [
+        {
+          "Name": "BasePath",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The base path name that callers of the API must provide in the URL\nafter the domain name.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "DomainName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of a DomainName resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the API.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Stage",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the API's stage.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::ClientCertificate",
+      "Href": "aws-resource-apigateway-clientcertificate.html",
+      "Properties": [
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the client certificate.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Deployment",
+      "Href": "aws-resource-apigateway-deployment.html",
+      "Properties": [
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the purpose of the API Gateway deployment.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the RestApi resource to deploy.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StageDescription",
+          "Type": "Amazon API Gateway Deployment StageDescription",
+          "TypeHref": "aws-properties-apitgateway-deployment-stagedescription.html",
+          "TypeName": "",
+          "DocString": "Configures the stage that API Gateway creates with this deployment.",
+          "SyntaxExpression": "StageDescription"
+        },
+        {
+          "Name": "StageName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the stage that API Gateway creates with this deployment.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Method",
+      "Href": "aws-resource-apigateway-method.html",
+      "Properties": [
+        {
+          "Name": "ApiKeyRequired",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the method requires clients to submit a valid API\nkey.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "AuthorizationType",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The method's authorization type.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "AuthorizerId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The identifier of the authorizer to use on this method. If you specify\nthis property, specify CUSTOM for the AuthorizationType property.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "HttpMethod",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The HTTP method that clients will use to call this method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Integration",
+          "Type": "Amazon API Gateway Method Integration",
+          "TypeHref": "aws-properties-apitgateway-method-integration.html",
+          "TypeName": "",
+          "DocString": "The back-end system that the method calls when it receives a request.",
+          "SyntaxExpression": "Integration"
+        },
+        {
+          "Name": "MethodResponses",
+          "Type": "List of Amazon API Gateway Method MethodResponse",
+          "TypeHref": "aws-properties-apitgateway-method-methodresponse.html",
+          "TypeName": "",
+          "DocString": "The responses that can be sent to the client who calls the method.",
+          "SyntaxExpression": "[ MethodResponse, ... ]"
+        },
+        {
+          "Name": "RequestModels",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The resources used for the response's content type. Specify response\nmodels as key-value pairs (string-to-string maps), with a content type\nas the key and a Model resource name as the value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "RequestParameters",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Request parameters that API Gateway accepts. Specify request\nparameters as key-value pairs (string-to-Boolean maps), with a source\nas the key and a Boolean as the value. The Boolean specifies whether a\nparameter is required. A source must match the following format\nmethod.request.location.name, where the location is a query string,\npath, or header, and name is a valid, unique parameter name.",
+          "SyntaxExpression": "{ String:Boolean, ... }"
+        },
+        {
+          "Name": "ResourceId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of an API Gateway resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the RestApi resource in which API Gateway creates the\nmethod.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Model",
+      "Href": "aws-resource-apigateway-model.html",
+      "Properties": [
+        {
+          "Name": "ContentType",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The content type for the model.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description that identifies this model.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the mode. If you don't specify a name, AWS CloudFormation\ngenerates a unique physical ID and uses that ID for the model name.\nFor more information, see Name Type.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of a REST API with which to associate this model.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Schema",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The schema to use to transform data to one or more output formats.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Resource",
+      "Href": "aws-resource-apigateway-resource.html",
+      "Properties": [
+        {
+          "Name": "ParentId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "If you want to create a child resource, the ID of the parent resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "PathPart",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A path name for the resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the RestApi resource in which you want to create this\nresource.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::RestApi",
+      "Href": "aws-resource-apigateway-restapi.html",
+      "Properties": [
+        {
+          "Name": "Body",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A Swagger specification that defines a set of RESTful APIs in JSON or\nYAML format.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "BodyS3Location",
+          "Type": "Amazon API Gateway RestApi S3Location",
+          "TypeHref": "aws-properties-apitgateway-restapi-bodys3location.html",
+          "TypeName": "",
+          "DocString": "The Amazon Simple Storage Service (Amazon S3) location that points to\na Swagger file, which defines a set of RESTful APIs in JSON or YAML\nformat.",
+          "SyntaxExpression": "S3Location"
+        },
+        {
+          "Name": "CloneFrom",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the API Gateway RestApi resource that you want to clone.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the purpose of this API Gateway RestApi resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FailOnWarnings",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "If a warning occurs while API Gateway is creating the RestApi\nresource, indicates whether to roll back the resource.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the API Gateway RestApi resource.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Parameters",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Custom header parameters for the request.",
+          "SyntaxExpression": "[ String, ... ]"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::ApiGateway::Stage",
+      "Href": "aws-resource-apigateway-stage.html",
+      "Properties": [
+        {
+          "Name": "CacheClusterEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether cache clustering is enabled for the stage.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "CacheClusterSize",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The stage's cache cluster size.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ClientCertificateId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The identifier of the client certificate that API Gateway uses to call\nyour integration endpoints in the stage.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "DeploymentId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the deployment that the stage points to.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the stage's purpose.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "MethodSettings",
+          "Type": "Amazon API Gateway Stage MethodSetting",
+          "TypeHref": "aws-properties-apitgateway-stage-methodsetting.html",
+          "TypeName": "",
+          "DocString": "Settings for all methods in the stage.",
+          "SyntaxExpression": "[ MethodSetting ]"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the RestApi resource that you're deploying with this stage.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StageName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the stage, which API Gateway uses as the first path\nsegment in the invoke Uniform Resource Identifier (URI).",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Variables",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A map (string to string map) that defines the stage variables, where\nthe variable name is the key and the variable value is the value.\nVariable names are limited to alphanumeric characters. Values must\nmatch the following regular expression: [A-Za-z0-9-._~:/?#\u0026amp;=,]+.",
+          "SyntaxExpression": "{ String:String, ... }"
+        }
+      ]
+    },
+    {
       "Name": "AWS::AutoScaling::AutoScalingGroup",
       "Href": "aws-properties-as-group.html",
       "Properties": [
@@ -1479,20 +1993,20 @@
           "SyntaxExpression": "[ LocalSecondaryIndexes, ... ]"
         },
         {
-          "Name": "StreamSpecification",
-          "Type": "DynamoDB Table StreamSpecification",
-          "TypeHref": "aws-properties-dynamodb-streamspecification.html",
-          "TypeName": "",
-          "DocString": "The settings for the DynamoDB table stream, which capture changes to\nitems stored in the table.",
-          "SyntaxExpression": "StreamSpecification"
-        },
-        {
           "Name": "ProvisionedThroughput",
           "Type": "DynamoDB Provisioned Throughput",
           "TypeHref": "aws-properties-dynamodb-provisionedthroughput.html",
           "TypeName": "",
           "DocString": "Throughput for the specified table, consisting of values for\nReadCapacityUnits and WriteCapacityUnits. For more information about\nthe contents of a provisioned throughput structure, see DynamoDB\nProvisioned Throughput.",
           "SyntaxExpression": "ProvisionedThroughput"
+        },
+        {
+          "Name": "StreamSpecification",
+          "Type": "DynamoDB Table StreamSpecification",
+          "TypeHref": "aws-properties-dynamodb-streamspecification.html",
+          "TypeName": "",
+          "DocString": "The settings for the DynamoDB table stream, which capture changes to\nitems stored in the table.",
+          "SyntaxExpression": "StreamSpecification"
         },
         {
           "Name": "TableName",
@@ -1665,9 +2179,47 @@
       ]
     },
     {
+      "Name": "AWS::EC2::Host",
+      "Href": "aws-resource-ec2-host.html",
+      "Properties": [
+        {
+          "Name": "AutoPlacement",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates if the host accepts EC2 instances with only matching\nconfigurations or if instances must also specify the host ID.\nInstances that don't specify a host ID can't launch onto a host with\nAutoPlacement set to off. By default, AWS CloudFormation sets this\nproperty to on. For more information, see Understanding Instance\nPlacement and Host Affinity in the Amazon EC2 User Guide for Linux\nInstances.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "AvailabilityZone",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Availability Zone (AZ) in which to launch the dedicated host.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "InstanceType",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The instance type that the dedicated host accepts. Only instances of\nthis type can be launched onto the host. For more information, see\nSupported Instance Types in the Amazon EC2 User Guide for Linux\nInstances.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
       "Name": "AWS::EC2::Instance",
       "Href": "aws-properties-ec2-instance.html",
       "Properties": [
+        {
+          "Name": "Affinity",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether Amazon Elastic Compute Cloud (Amazon EC2) always\nassociates the instance with a dedicated host. If you want Amazon EC2\nto always restart the instance (if it was stopped) onto the same host\non which it was launched, specify host. If you want Amazon EC2 to\nrestart the instance on any available host, but to try to launch the\ninstance onto the last host it ran on (on a best-effort basis),\nspecify default.",
+          "SyntaxExpression": "String"
+        },
         {
           "Name": "AvailabilityZone",
           "Type": "String",
@@ -1699,6 +2251,14 @@
           "TypeName": "",
           "DocString": "Specifies whether the instance is optimized for Amazon Elastic Block\nStore I/O. This optimization provides dedicated throughput to Amazon\nEBS and an optimized configuration stack to provide optimal EBS I/O\nperformance.",
           "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "HostId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "If you specify host for the Affinity property, the ID of a dedicated\nhost that the instance is associated with. If you don't specify an ID,\nAmazon EC2 launches the instance onto any available, compatible\ndedicated host in your account. This type of launch is called an\nuntargeted launch. Note that for untargeted launches, you must have a\ncompatible, dedicated host available to successfully launch instances.",
+          "SyntaxExpression": "String"
         },
         {
           "Name": "IamInstanceProfile",
@@ -1841,7 +2401,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The tenancy of the instance that you want to launch. This value can be\neither \"default\" or \"dedicated\". An instance that has a tenancy value\nof \"dedicated\" runs on single-tenant hardware and can be launched only\ninto a VPC. For more information, see Using EC2 Dedicated Instances\nWithin Your VPC in the Amazon VPC User Guide.",
+          "DocString": "The tenancy of the instance that you want to launch, such as default,\ndedicated, or host. If you specify a tenancy value of dedicated or\nhost, you must launch the instance in a VPC. For more information, see\nDedicated Instances in the Amazon VPC User Guide.",
           "SyntaxExpression": "String"
         },
         {
@@ -2519,7 +3079,7 @@
           "Type": "Number",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The number of I/O operations per second (IOPS) that the volume\nsupports. This can be any integer value from 1–4000.",
+          "DocString": "The number of I/O operations per second (IOPS) that the volume\nsupports. For more information about the valid sizes for each volume\ntype, see the Iops parameter for the CreateVolume action in the Amazon\nEC2 API Reference.",
           "SyntaxExpression": "Number"
         },
         {
@@ -2535,7 +3095,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The size of the volume, in gibibytes (GiBs). For more information\nabout the valid sizes for each volume type, see the CreateVolume Size\nparameter in the Amazon EC2 API Reference.",
+          "DocString": "The size of the volume, in gibibytes (GiBs). For more information\nabout the valid sizes for each volume type, see the Size parameter for\nthe CreateVolume action in the Amazon EC2 API Reference.",
           "SyntaxExpression": "String"
         },
         {
@@ -2559,7 +3119,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The volume type. You can specify standard, io1, or gp2. If you set the\ntype to io1, you must also set the Iops property. For more information\nabout these values and the default value, see CreateVolume in the\nAmazon EC2 API Reference.",
+          "DocString": "The volume type. You can specify standard, io1, or gp2. If you set the\ntype to io1, you must also set the Iops property. For more information\nabout these values and the default value, see the VolumeType parameter\nfor the CreateVolume action in the Amazon EC2 API Reference.",
           "SyntaxExpression": "String"
         }
       ]
@@ -2912,6 +3472,14 @@
           "SyntaxExpression": "String"
         },
         {
+          "Name": "DeploymentConfiguration",
+          "Type": "Amazon EC2 Container Service Service DeploymentConfiguration",
+          "TypeHref": "aws-properties-ecs-service-deploymentconfiguration.html",
+          "TypeName": "",
+          "DocString": "Configures how many tasks run during a deployment.",
+          "SyntaxExpression": "DeploymentConfiguration"
+        },
+        {
           "Name": "DesiredCount",
           "Type": "String",
           "TypeHref": "",
@@ -3184,12 +3752,12 @@
           "SyntaxExpression": "[Resource Tag, ...]"
         },
         {
-          "Name": " VpcSecurityGroupIds ",
+          "Name": "VpcSecurityGroupIds",
           "Type": "List of strings",
           "TypeHref": "",
           "TypeName": "",
           "DocString": "A list of VPC security group IDs. If your cache cluster isn't in a\nVPC, specify the CacheSecurityGroupNames property instead.",
-          "SyntaxExpression": ""
+          "SyntaxExpression": "[String, ...]"
         }
       ]
     },
@@ -3637,7 +4205,7 @@
           "Type": "A list of ElasticLoadBalancing policy objects",
           "TypeHref": "aws-properties-ec2-elb-policy.html",
           "TypeName": "",
-          "DocString": "A list of elastic load balancing policies to apply to this elastic\nload balancer.",
+          "DocString": "A list of elastic load balancing policies to apply to this elastic\nload balancer. Specify only back-end server policies. For more\ninformation, see DescribeLoadBalancerPolicyTypes in the Elastic Load\nBalancing API Reference.",
           "SyntaxExpression": "[ ElasticLoadBalancing Policy, ... ]"
         },
         {
@@ -3773,6 +4341,14 @@
           "SyntaxExpression": "[ Configurations, ... ]"
         },
         {
+          "Name": "EbsConfiguration",
+          "Type": "Amazon Elastic MapReduce EbsConfiguration",
+          "TypeHref": "aws-properties-emr-ebsconfiguration.html",
+          "TypeName": "",
+          "DocString": "Configures Amazon Elastic Block Store (Amazon EBS) storage volumes to\nattach to your instances.",
+          "SyntaxExpression": "EBSConfiguration"
+        },
+        {
           "Name": "Instances",
           "Type": "Amazon Elastic MapReduce Cluster JobFlowInstancesConfig",
           "TypeHref": "aws-properties-emr-cluster-jobflowinstancesconfig.html",
@@ -3859,6 +4435,14 @@
           "SyntaxExpression": "[ Configuration, ... ]"
         },
         {
+          "Name": "EbsConfiguration",
+          "Type": "Amazon Elastic MapReduce EbsConfiguration",
+          "TypeHref": "aws-properties-emr-ebsconfiguration.html",
+          "TypeName": "",
+          "DocString": "Configures Amazon Elastic Block Store (Amazon EBS) storage volumes to\nattach to your instances.",
+          "SyntaxExpression": "EBSConfiguration"
+        },
+        {
           "Name": "InstanceCount",
           "Type": "Integer",
           "TypeHref": "",
@@ -3943,6 +4527,68 @@
           "TypeName": "",
           "DocString": "A name for the job flow step.",
           "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::Events::Rule",
+      "Href": "aws-resource-events-rule.html",
+      "Properties": [
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the rule's purpose.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "EventPattern",
+          "Type": "JSON object",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Describes which events CloudWatch Events routes to the specified\ntarget. These routed events are matched events. For more information,\nsee Events and Event Patterns in the Amazon CloudWatch Developer\nGuide.",
+          "SyntaxExpression": "JSON object"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the rule. If you don't specify a name, AWS CloudFormation\ngenerates a unique physical ID and uses that ID for the rule name. For\nmore information, see Name Type.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "RoleArn",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Amazon Resource Name (ARN) of the AWS Identity and Access\nManagement (IAM) role that grants CloudWatch Events permission to make\ncalls to target services, such as AWS Lambda (Lambda) or Amazon\nKinesis streams.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ScheduleExpression",
+          "Type": "",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The schedule or rate (frequency) that determines when CloudWatch\nEvents runs the rule. For more information, see Schedule Expression\nSyntax for Rules in the Amazon CloudWatch Developer Guide.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "State",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the rule is enabled. For valid values, see the State\nparameter for the PutRule action in the Amazon CloudWatch Events API\nReference.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Targets",
+          "Type": "List of Amazon CloudWatch Events Rule Target",
+          "TypeHref": "aws-properties-events-rule-target.html",
+          "TypeName": "",
+          "DocString": "The resources, such as Lambda functions or Amazon Kinesis streams,\nthat CloudWatch Events routes events to and invokes when the rule is\ntriggered.",
+          "SyntaxExpression": "[ Target, ... ]"
         }
       ]
     },
@@ -4057,6 +4703,22 @@
           "TypeName": "",
           "DocString": "The path to game-session log files that are generated by your game\nserver, with the slashes (\\) escaped. After a game session has been\nterminated, GameLift captures and stores the logs in an S3 bucket.",
           "SyntaxExpression": "[ String, ... ]"
+        },
+        {
+          "Name": "MaxSize",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The maximum number of EC2 instances that you want to allow in this\nfleet. By default, AWS CloudFormation, sets this property to 1.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "MinSize",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The minimum number of EC2 instances that you want to allow in this\nfleet. By default, AWS CloudFormation, sets this property to 0.",
+          "SyntaxExpression": "Integer"
         },
         {
           "Name": "Name",
@@ -4479,6 +5141,44 @@
       ]
     },
     {
+      "Name": "AWS::Lambda::Alias",
+      "Href": "aws-resource-lambda-alias.html",
+      "Properties": [
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Information that describes the alias, such as its purpose or the\nfunction that it's associated with.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FunctionName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Lambda function that you want to associate with this alias. You\ncan specify the function's name or its Amazon Resource Name (ARN).",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FunctionVersion",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The version of the Lambda function that you want to associate with\nthis alias.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the alias.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
       "Name": "AWS::Lambda::Function",
       "Href": "aws-resource-lambda-function.html",
       "Properties": [
@@ -4496,6 +5196,14 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "A description of the function.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FunctionName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A name for the function. If you don't specify a name, AWS\nCloudFormation generates a unique physical ID and uses that ID for the\nfunction's name. For more information, see Name Type.",
           "SyntaxExpression": "String"
         },
         {
@@ -4537,6 +5245,14 @@
           "TypeName": "",
           "DocString": "The function execution time (in seconds) after which Lambda terminates\nthe function. Because the execution time affects cost, set this value\nbased on the function's expected execution time. By default, Timeout\nis set to 3 seconds. ",
           "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "VpcConfig",
+          "Type": "AWS Lambda Function VPCConfig",
+          "TypeHref": "aws-properties-lambda-function-vpcconfig.html",
+          "TypeName": "",
+          "DocString": "If the Lambda function requires access to resources in a VPC, specify\na VPC configuration that Lambda uses to set up an elastic network\ninterface (ENI). The ENI enables your function to connect to other\nresources in your VPC, but it doesn't provide public Internet access.\nIf your function requires Internet access (for example, to access AWS\nservices that don't have VPC endpoints), configure a Network Address\nTranslation (NAT) instance inside your VPC or use an Amazon Virtual\nPrivate Cloud (Amazon VPC) NAT gateway. For more information, see NAT\nGateways in the Amazon VPC User Guide.",
+          "SyntaxExpression": "VPCConfig"
         }
       ]
     },
@@ -4582,6 +5298,36 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "The ARN of a resource that is invoking your function. When granting\nAmazon Simple Storage Service (Amazon S3) permission to invoke your\nfunction, specify this property with the bucket ARN as its value. This\nensures that events generated only from the specified bucket, not just\nany bucket from any AWS account that creates a mapping to your\nfunction, can invoke the function.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::Lambda::Version",
+      "Href": "aws-resource-lambda-version.html",
+      "Properties": [
+        {
+          "Name": "CodeSha256",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The SHA-256 hash of the deployment package that you want to publish.\nThis value must match the SHA-256 hash of the $LATEST version of the\nfunction. Specify this property to validate that you are publishing\nthe correct package. ",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the version you are publishing. If you don't specify\na value, Lambda copies the description from the $LATEST version of the\nfunction.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FunctionName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Lambda function for which you want to publish a version. You can\nspecify the function's name or its Amazon Resource Name (ARN).",
           "SyntaxExpression": "String"
         }
       ]
@@ -5635,7 +6381,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The weekly time range (in UTC) during which system maintenance can\noccur.",
+          "DocString": "The weekly time range (in UTC) during which system maintenance can\noccur. ",
           "SyntaxExpression": "String"
         },
         {
@@ -6790,7 +7536,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "A friendly name or description for the metrics of this rule.",
+          "DocString": "A friendly name or description for the metrics of the rule.",
           "SyntaxExpression": "String"
         },
         {
@@ -6806,8 +7552,30 @@
           "Type": "List of AWS WAF Rule Predicates",
           "TypeHref": "aws-properties-waf-rule-predicates.html",
           "TypeName": "",
-          "DocString": "The ByteMatchSet, IPSet, or SqlInjectionMatchSet objects to include in\na rule. If you add more than one predicate to a rule, a request must\nmatch all conditions for it to be allowed or blocked.",
+          "DocString": "The ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or\nXssMatchSet objects to include in a rule. If you add more than one\npredicate to a rule, a request must match all conditions in order to\nbe allowed or blocked.",
           "SyntaxExpression": "[ Predicate, ... ]"
+        }
+      ]
+    },
+    {
+      "Name": "AWS::WAF::SizeConstraintSet",
+      "Href": "aws-resource-waf-sizeconstraintset.html",
+      "Properties": [
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A friendly name or description for the SizeConstraintSet.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "SizeConstraints",
+          "Type": "List of AWS WAF SizeConstraintSet SizeConstraint",
+          "TypeHref": "aws-properties-waf-sizeconstraintset-sizeconstraint.html",
+          "TypeName": "",
+          "DocString": "The size constraint and the part of the web request to check.",
+          "SyntaxExpression": "[ SizeConstraint, ... ]"
         }
       ]
     },
@@ -6872,6 +7640,28 @@
       ]
     },
     {
+      "Name": "AWS::WAF::XssMatchSet",
+      "Href": "aws-resource-waf-xssmatchset.html",
+      "Properties": [
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A friendly name or description for the XssMatchSet.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "XssMatchTuples",
+          "Type": "List of AWS WAF XssMatchSet XssMatchTuple",
+          "TypeHref": "aws-properties-waf-xssmatchset-xssmatchtuple.html",
+          "TypeName": "",
+          "DocString": "The parts of web requests that you want to inspect for cross-site\nscripting attacks.",
+          "SyntaxExpression": "[ XssMatchTuple, ... ]"
+        }
+      ]
+    },
+    {
       "Name": "AWS::WorkSpaces::Workspace",
       "Href": "aws-resource-workspaces-workspace.html",
       "Properties": [
@@ -6922,6 +7712,462 @@
           "TypeName": "",
           "DocString": "The AWS Key Management Service (AWS KMS) key ID that Amazon WorkSpaces\nuses to encrypt data stored on your workspace.",
           "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway ApiKey StageKey",
+      "Href": "aws-properties-apitgateway-apikey-stagekey.html",
+      "Properties": [
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of a RestApi resource that includes the stage with which you\nwant to associate the API key.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StageName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the stage with which to associate the API key. The stage\nmust be included in the RestApi resource that you specified in the\nRestApiId property.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Deployment StageDescription",
+      "Href": "aws-properties-apitgateway-deployment-stagedescription.html",
+      "Properties": [
+        {
+          "Name": "CacheClusterEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether cache clustering is enabled for the stage.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "CacheClusterSize",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The size of the stage's cache cluster.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ClientCertificateId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The identifier of the client certificate that API Gateway uses to call\nyour integration endpoints in the stage.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "DeploymentId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of the deployment that the stage points to.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Description",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A description of the purpose of the stage.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "MethodSettings",
+          "Type": "Amazon API Gateway Deployment StageDescription MethodSetting",
+          "TypeHref": "aws-properties-apitgateway-deployment-stagedescription-methodsetting.html",
+          "TypeName": "",
+          "DocString": "Configures settings for all of the stage's methods.",
+          "SyntaxExpression": "[ MethodSetting ]"
+        },
+        {
+          "Name": "RestApiId",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The ID of a RestApi resource that you're deploying with this stage.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StageName",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the stage, which API Gateway uses as the first path\nsegment in the invoke Uniform Resource Identifier (URI).",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Variables",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A map that defines the stage variables. Variable names must consist of\nalphanumeric characters, and the values must match the following\nregular expression: [A-Za-z0-9-._~:/?#\u0026amp;=,]+.",
+          "SyntaxExpression": "{ String:String, ... }"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Deployment StageDescription MethodSetting",
+      "Href": "aws-properties-apitgateway-deployment-stagedescription-methodsetting.html",
+      "Properties": [
+        {
+          "Name": "CacheDataEncrypted",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the cached responses are encrypted.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "CacheTtlInSeconds",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The time-to-live (TTL) period, in seconds, that specifies how long API\nGateway caches responses.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "CachingEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether responses are cached and returned for requests. You\nmust enable a cache cluster on the stage to cache responses.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "DataTraceEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether data trace logging is enabled for methods in the\nstage. API Gateway pushes these logs to Amazon CloudWatch Logs.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "HttpMethod",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The HTTP method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "LoggingLevel",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The logging level for this method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "MetricsEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether Amazon CloudWatch metrics are enabled for methods in\nthe stage.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "ResourcePath",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The resource path for this method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ThrottlingBurstLimit",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of burst requests per second that API Gateway permits\nacross all APIs, stages, and methods in your AWS account.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "ThrottlingRateLimit",
+          "Type": "Number",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of steady-state requests per second that API Gateway\npermits across all APIs, stages, and methods in your AWS account.",
+          "SyntaxExpression": "Number"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Method Integration",
+      "Href": "aws-properties-apitgateway-method-integration.html",
+      "Properties": [
+        {
+          "Name": "CacheKeyParameters",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of request parameters whose values API Gateway will cache.",
+          "SyntaxExpression": "[ String, ... ]"
+        },
+        {
+          "Name": "CacheNamespace",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "An API-specific tag group of related cached parameters.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Credentials",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The credentials required for the integration. To specify an AWS\nIdentity and Access Management (IAM) role that API Gateway assumes,\nspecify the role's Amazon Resource Name (ARN). To use resource-based\npermissions on the AWS Lambda (Lambda) function, specify null. To\nrequire that the caller's identity be passed through from the request,\nspecify arn:aws:iam::\\*:user/\\*.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "IntegrationHttpMethod",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The integration's HTTP method type.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "IntegrationResponses",
+          "Type": "List of Amazon API Gateway Method Integration IntegrationResponse",
+          "TypeHref": "aws-properties-apitgateway-method-integration-integrationresponse.html",
+          "TypeName": "",
+          "DocString": "The response that API Gateway provides after a method's back end\ncompletes processing a request. API Gateway intercepts the back end's\nresponse so that you can control how API Gateway surfaces back-end\nresponses. For example, you can map the back-end status codes to codes\nthat you define.",
+          "SyntaxExpression": "[ IntegrationResponse, ... ]"
+        },
+        {
+          "Name": "RequestParameters",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The request parameters that API Gateway sends with the back-end\nrequest. Specify request parameters as key-value pairs\n(string-to-string maps), with a destination as the key and a source as\nthe value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "RequestTemplates",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The templates used to transform the method request body. Specify\ntemplates as key-value pairs (string-to-string maps), with a content\ntype as the key and a template as the value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "Type",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The type of back end your method is running, such as HTTP, AWS, or\nMOCK.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Uri",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The integration's Uniform Resource Identifier (URI). If you specify\nHTTP for the Type property, specify the API endpoint URL. If you\nspecify MOCK for the Type property, don't specify this property. If\nyou specify AWS for the Type property, specify an AWS service that\nfollows the form:\narn:aws:apigateway:region:subdomain.service|service:path|action/service_api.\nFor example, a Lambda function URI follows the form:\narn:aws:apigateway:region:lambda:path/path. The path is usually in the\nform /2015-03-31/functions/LambdaFunctionARN/invocations. For more\ninformation, see the uri property of the Integration resource in the\nAmazon API Gateway REST API Reference.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Method Integration IntegrationResponse",
+      "Href": "aws-properties-apitgateway-method-integration-integrationresponse.html",
+      "Properties": [
+        {
+          "Name": "ResponseParameters",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The response parameters from the back-end response that API Gateway\nsends to the method response. Specify response parameters as key-value\npairs (string-to-string maps), with a destination as the key and a\nsource as the value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "ResponseTemplates",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The templates used to transform the integration response body. Specify\ntemplates as key-value pairs (string-to-string maps), with a content\ntype as the key and a template as the value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "SelectionPattern",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A regular expression that specifies which error strings or status\ncodes from the back end map to the integration response.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "StatusCode",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The status code that API Gateway uses to map the integration response\nto a MethodResponse status code.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Method MethodResponse",
+      "Href": "aws-properties-apitgateway-method-methodresponse.html",
+      "Properties": [
+        {
+          "Name": "ResponseModels",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The resources used for the response's content type. Specify response\nmodels as key-value pairs (string-to-string maps), with a content type\nas the key and a Model resource name as the value.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "ResponseParameters",
+          "Type": "List of key-value pairs",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Response parameters that API Gateway sends to the client that called a\nmethod. Specify response parameters as key-value pairs\n(string-to-Boolean maps), with a destination as the key and a Boolean\nas the value. Specify the destination using the following pattern:\nmethod.response.header.name, where the name is a valid, unique header\nname. The Boolean specifies whether a parameter is required.",
+          "SyntaxExpression": "{ String:Boolean, ... }"
+        },
+        {
+          "Name": "StatusCode",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The method response's status code, which you map to an\nIntegrationResponse.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway RestApi S3Location",
+      "Href": "aws-properties-apitgateway-restapi-bodys3location.html",
+      "Properties": [
+        {
+          "Name": "Bucket",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name of the S3 bucket where the Swagger file is stored.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ETag",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Amazon S3 ETag (a file checksum) of the Swagger file. If you don't\nspecify a value, API Gateway skips ETag validation of your Swagger\nfile.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Key",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The file name of the application revision (Amazon S3 object name).",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Version",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "For versioning-enabled buckets, a specific version of the Swagger\nfile.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon API Gateway Stage MethodSetting",
+      "Href": "aws-properties-apitgateway-stage-methodsetting.html",
+      "Properties": [
+        {
+          "Name": "CacheDataEncrypted",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the cached responses are encrypted.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "CacheTtlInSeconds",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The time-to-live (TTL) period, in seconds, that specifies how long API\nGateway caches responses.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "CachingEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether responses are cached and returned for requests. You\nmust enable a cache cluster on the stage to cache responses.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "DataTraceEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether data trace logging is enabled for methods in the\nstage. API Gateway pushes these logs to Amazon CloudWatch Logs.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "HttpMethod",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The HTTP method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "LoggingLevel",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The logging level for this method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "MetricsEnabled",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether Amazon CloudWatch metrics are enabled for methods in\nthe stage.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "ResourcePath",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The resource path for this method.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "ThrottlingBurstLimit",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of burst requests per second that API Gateway permits\nacross all APIs, stages, and methods in your AWS account.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "ThrottlingRateLimit",
+          "Type": "Number",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of steady-state requests per second that API Gateway\npermits across all APIs, stages, and methods in your AWS account.",
+          "SyntaxExpression": "Number"
         }
       ]
     },
@@ -7813,6 +9059,44 @@
       ]
     },
     {
+      "Name": "Amazon CloudWatch Events Rule Target",
+      "Href": "aws-properties-events-rule-target.html",
+      "Properties": [
+        {
+          "Name": "Arn",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The Amazon Resource Name (ARN) of the target.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Id",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A unique identifier for the target.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Input",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A JSON-formatted text string that is passed to the target. This value\noverrides the matched event.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "InputPath",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "When you don't want to pass the entire matched event, the JSONPath\nthat describes which part of the event to pass to the target.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
       "Name": "CloudWatch Logs MetricFilter MetricTransformation Property",
       "Href": "aws-properties-logs-metricfilter-metrictransformation.html",
       "Properties": [
@@ -8480,11 +9764,11 @@
         },
         {
           "Name": "SourceDetails",
-          "Type": "AWS Config ConfigRule Source SourceDetails",
+          "Type": "List of AWS Config ConfigRule Source SourceDetails",
           "TypeHref": "aws-properties-config-configrule-source-sourcedetails.html",
           "TypeName": "",
           "DocString": "Provides the source and type of event that triggers AWS Config to\nevaluate your AWS resources.",
-          "SyntaxExpression": "SourceDetails"
+          "SyntaxExpression": "[ SourceDetail, ... ]"
         },
         {
           "Name": "SourceIdentifier",
@@ -8719,7 +10003,7 @@
           "Type": "List of strings",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "A list of at least two subnet IDs for the directory servers. Each\nsubnet must be in different Availability Zones (AZs). AWS Directory\nService creates a directory server and a DNS server in each subnet.",
+          "DocString": "A list of two subnet IDs for the directory servers. Each subnet must\nbe in different Availability Zones (AZs). AWS Directory Service\ncreates a directory server and a DNS server in each subnet.",
           "SyntaxExpression": "[ String, ... ]"
         },
         {
@@ -8741,7 +10025,7 @@
           "Type": "List of strings",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "A list of at least two subnet IDs for the directory servers. Each\nsubnet must be in different Availability Zones (AZ). AWS Directory\nService creates a directory server and a DNS server in each subnet.",
+          "DocString": "A list of two subnet IDs for the directory servers. Each subnet must\nbe in different Availability Zones (AZ). AWS Directory Service creates\na directory server and a DNS server in each subnet.",
           "SyntaxExpression": "[ String, ... ]"
         },
         {
@@ -9871,6 +11155,28 @@
       ]
     },
     {
+      "Name": "Amazon EC2 Container Service Service DeploymentConfiguration",
+      "Href": "aws-properties-ecs-service-deploymentconfiguration.html",
+      "Properties": [
+        {
+          "Name": "MaximumPercent",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The maximum number of tasks, specified as a percentage of the Amazon\nECS service's DesiredCount value, that can run in a service during a\ndeployment. To calculate the maximum number of tasks, Amazon ECS uses\nthis formula: the value of DesiredCount * (the value of the\nMaximumPercent/100), rounded down to the nearest integer value.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "MinimumHealthyPercent",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The minimum number of tasks, specified as a percentage of the Amazon\nECS service's DesiredCount value, that must continue to run and remain\nhealthy during a deployment. To calculate the minimum number of tasks,\nAmazon ECS uses this formula: the value of DesiredCount * (the value\nof the MinimumHealthyPercent/100), rounded up to the nearest integer\nvalue.",
+          "SyntaxExpression": "Integer"
+        }
+      ]
+    },
+    {
       "Name": "Amazon EC2 Container Service Service LoadBalancers",
       "Href": "aws-properties-ecs-service-loadbalancers.html",
       "Properties": [
@@ -9917,8 +11223,48 @@
           "Type": "Integer",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The minimum number of CPU units to reserve for the container.\nContainers share unallocated CPU units with other containers on the\ninstance by using the same ratio as their allocated CPU units.",
+          "DocString": "The minimum number of CPU units to reserve for the container.\nContainers share unallocated CPU units with other containers on the\ninstance by using the same ratio as their allocated CPU units. For\nmore information, see the cpu content for the ContainerDefinition data\ntype in the Amazon EC2 Container Service API Reference.",
           "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "DisableNetworking",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether networking is disabled within the container.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "DnsSearchDomains",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of DNS search domains that are provided to the container. The\ndomain names that the DNS logic looks up when a process attempts to\naccess a bare unqualified hostname.",
+          "SyntaxExpression": "[ String, ... ]"
+        },
+        {
+          "Name": "DnsServers",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of DNS servers that Amazon ECS provides to the container.",
+          "SyntaxExpression": "[ String, ... ]"
+        },
+        {
+          "Name": "DockerLabels",
+          "Type": "Key-value pairs, with the name of the label as the key and the label value as the value",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A key-value map of labels for the container.",
+          "SyntaxExpression": "{ String:String, ... }"
+        },
+        {
+          "Name": "DockerSecurityOptions",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of custom labels for SELinux and AppArmor multi-level security\nsystems. For more information, see the dockerSecurityOptions content\nfor the ContainerDefinition data type in the Amazon EC2 Container\nService API Reference.",
+          "SyntaxExpression": "[ String, ... ]"
         },
         {
           "Name": "EntryPoint",
@@ -9941,8 +11287,24 @@
           "Type": "Boolean",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "Indicates whether the task stops if this container fails. If you\nspecify true and the container fails, all other containers in the task\nstop. If you specify false and the container fails, none of the other\ncontainers in the task are affected. This value is true by default.",
+          "DocString": "Indicates whether the task stops if this container fails. If you\nspecify true and the container fails, all other containers in the task\nstop. If you specify false and the container fails, none of the other\ncontainers in the task is affected. This value is true by default.",
           "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "ExtraHosts",
+          "Type": "List of Amazon EC2 Container Service TaskDefinition ContainerDefinitions HostEntry",
+          "TypeHref": "aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html",
+          "TypeName": "",
+          "DocString": "A list of hostnames and IP address mappings to append to the\n/etc/hosts file on the container.",
+          "SyntaxExpression": "[ Host Entry, ... ]"
+        },
+        {
+          "Name": "Hostname",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The name that Docker will use for the container's hostname.",
+          "SyntaxExpression": "String"
         },
         {
           "Name": "Image",
@@ -9961,11 +11323,19 @@
           "SyntaxExpression": "[ String, ... ]"
         },
         {
+          "Name": "LogConfiguration",
+          "Type": "Amazon EC2 Container Service TaskDefinition ContainerDefinitions LogConfiguration",
+          "TypeHref": "aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html",
+          "TypeName": "",
+          "DocString": "Configures a custom log driver for the container. For more\ninformation, see the logConfiguration content for the\nContainerDefinition data type in the Amazon EC2 Container Service API\nReference.",
+          "SyntaxExpression": "Log Configuration"
+        },
+        {
           "Name": "Memory",
           "Type": "Integer",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The number of MiB of memory to reserve for the container. If your\ncontainer attempts to exceed the allocated memory, the container is\nkilled.",
+          "DocString": "The number of MiB of memory to reserve for the container. If your\ncontainer attempts to exceed the allocated memory, the container is\nterminated.",
           "SyntaxExpression": "Integer"
         },
         {
@@ -9993,12 +11363,52 @@
           "SyntaxExpression": "[ Port Map, ... ]"
         },
         {
+          "Name": "Privileged",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the container is given full access to the host\ncontainer instance.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "ReadonlyRootFilesystem",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the container's root file system is mounted as read\nonly.",
+          "SyntaxExpression": "Boolean"
+        },
+        {
+          "Name": "Ulimits",
+          "Type": "List of Amazon EC2 Container Service TaskDefinition ContainerDefinitions Ulimit",
+          "TypeHref": "aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html",
+          "TypeName": "",
+          "DocString": "A list of ulimits to set in the container. The ulimits set constraints\non how much resources a container can consume so that it doesn't\ndeplete all available resources on the host.",
+          "SyntaxExpression": "[ Ulimit, ... ]"
+        },
+        {
+          "Name": "User",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The user name to use inside the container.",
+          "SyntaxExpression": "String"
+        },
+        {
           "Name": "VolumesFrom",
           "Type": "List of Amazon EC2 Container Service TaskDefinition ContainerDefinitions VolumesFrom",
           "TypeHref": "aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html",
           "TypeName": "",
-          "DocString": "Data volumes to mount from another container.",
+          "DocString": "The data volumes to mount from another container.",
           "SyntaxExpression": "[ Volume From, ... ]"
+        },
+        {
+          "Name": "WorkingDirectory",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The working directory in the container in which to run commands.",
+          "SyntaxExpression": "String"
         }
       ]
     },
@@ -10021,6 +11431,50 @@
           "TypeName": "",
           "DocString": "The value of the environment variable.",
           "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon EC2 Container Service TaskDefinition ContainerDefinitions HostEntry",
+      "Href": "aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html",
+      "Properties": [
+        {
+          "Name": "Hostname",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The hostname to use in the /etc/hosts file.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "IpAddress",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The IP address to use in the /etc/hosts file.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon EC2 Container Service TaskDefinition ContainerDefinitions LogConfiguration",
+      "Href": "aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html",
+      "Properties": [
+        {
+          "Name": "LogDriver",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The log driver to use for the container. This parameter requires that\nyour container instance uses Docker Remote API Version 1.18 or\ngreater. For more information, see the logDriver content for the\nLogConfiguration data type in the Amazon EC2 Container Service API\nReference.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Options",
+          "Type": "Key-value pairs, with the option name as the key and the option value as the value",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The configuration options to send to the log driver. This parameter\nrequires that your container instance uses Docker Remote API Version\n1.18 or greater. ",
+          "SyntaxExpression": "{ String:String, ... }"
         }
       ]
     },
@@ -10072,6 +11526,36 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "The host port number on the container instance that you want to\nreserve for your container. You can specify a non-reserved host port\nfor your container port mapping, or you can omit the host port (or set\nit to 0). If you specify a container port but no host port, your\ncontainer port is automatically assigned a host port in the 49153 to\n65535 port range.",
+          "SyntaxExpression": "Integer"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon EC2 Container Service TaskDefinition ContainerDefinitions Ulimit",
+      "Href": "aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html",
+      "Properties": [
+        {
+          "Name": "HardLimit",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The hard limit for the ulimit type.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "Name",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The type of ulimit. For valid values, see the name content for the\nUlimit data type in the Amazon EC2 Container Service API Reference.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "SoftLimit",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The soft limit for the ulimit type.",
           "SyntaxExpression": "Integer"
         }
       ]
@@ -10373,7 +11857,7 @@
           "Type": "List of strings",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "A list of ElasticLoadBalancing policy names to associate with the\nlistener.",
+          "DocString": "A list of ElasticLoadBalancing policy names to associate with the\nlistener. Specify only policies that are compatible with listeners.\nFor more information, see DescribeLoadBalancerPolicyTypes in the\nElastic Load Balancing API Reference.",
           "SyntaxExpression": "[ String, ... ]"
         },
         {
@@ -10646,7 +12130,7 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "The settings that you want to change in the application-specific\nconfiguration file. For more information see, Configuring Applications\nin the Amazon Elastic MapReduce Release Guide.",
-          "SyntaxExpression": "[ String:String, ... ]"
+          "SyntaxExpression": "{ String:String, ... }"
         },
         {
           "Name": "Configurations",
@@ -10824,6 +12308,80 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "The Amazon Elastic Compute Cloud (Amazon EC2) AZ for the job flow. For\nmore information, see\nhttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\nin the Amazon EC2 User Guide for Linux Instances.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon Elastic MapReduce EbsConfiguration",
+      "Href": "aws-properties-emr-ebsconfiguration.html",
+      "Properties": [
+        {
+          "Name": "EbsBlockDeviceConfig",
+          "Type": "List of Amazon Elastic MapReduce EbsConfiguration",
+          "TypeHref": "aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html",
+          "TypeName": "",
+          "DocString": "Configures the block storage devices that are associated with your EMR\ninstances.",
+          "SyntaxExpression": "[ EbsBlockDeviceConfig, ... ]"
+        },
+        {
+          "Name": "EbsOptimized",
+          "Type": "Boolean",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Indicates whether the instances are optimized for Amazon EBS I/O. This\noptimization provides dedicated throughput to Amazon EBS and an\noptimized configuration stack to provide optimal EBS I/O performance.\nFor more information about fees and supported instance types, see\nEBS-Optimized Instances in the Amazon EC2 User Guide for Linux\nInstances.",
+          "SyntaxExpression": "Boolean"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon Elastic MapReduce EbsConfiguration EbsBlockDeviceConfig",
+      "Href": "aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html",
+      "Properties": [
+        {
+          "Name": "VolumeSpecification",
+          "Type": "Amazon Elastic MapReduce EbsConfiguration EbsBlockDeviceConfig VolumeSpecification",
+          "TypeHref": "aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html",
+          "TypeName": "",
+          "DocString": "The settings for the Amazon EBS volumes.",
+          "SyntaxExpression": "VolumeSpecification"
+        },
+        {
+          "Name": "VolumesPerInstance",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of Amazon EBS volumes that you want to create for each\ninstance in the EMR cluster or instance group.",
+          "SyntaxExpression": "Integer"
+        }
+      ]
+    },
+    {
+      "Name": "Amazon Elastic MapReduce EbsConfiguration EbsBlockDeviceConfig VolumeSpecification",
+      "Href": "aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html",
+      "Properties": [
+        {
+          "Name": "Iops",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The number of I/O operations per second (IOPS) that the volume\nsupports. For more information, see Iops for the EbsBlockDevice action\nin the Amazon EC2 API Reference.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "SizeInGB",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The volume size, in Gibibytes (GiB). For more information about\nspecifying the volume size, see VolumeSize for the EbsBlockDevice\naction in the Amazon EC2 API Reference.",
+          "SyntaxExpression": "Integer"
+        },
+        {
+          "Name": "VolumeType",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The volume type, such as standard or io1. For more information about\nspecifying the volume type, see VolumeType for the EbsBlockDevice\naction in the Amazon EC2 API Reference.",
           "SyntaxExpression": "String"
         }
       ]
@@ -11039,7 +12597,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The name of the S3 bucket that contains the source code of your Lambda\nfunction. The S3 bucket must be in the same region in which the stack\nis created.",
+          "DocString": "The name of the S3 bucket that contains the source code of your Lambda\nfunction. The S3 bucket must be in the same region as the stack.",
           "SyntaxExpression": "String"
         },
         {
@@ -11047,7 +12605,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "The location and name of your source code .zip file. If you specify\nthis property, you must also specify the S3Bucket property.",
+          "DocString": "The location and name of the .zip file that contains your source code.\nIf you specify this property, you must also specify the S3Bucket\nproperty.",
           "SyntaxExpression": "String"
         },
         {
@@ -11055,7 +12613,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "If you have S3 versioning enabled, the version ID of your source code\n.zip file. You can specify this property only if you specify a bucket\nlocation.",
+          "DocString": "If you have S3 versioning enabled, the version ID of the.zip file that\ncontains your source code. You can specify this property only if you\nspecify the S3Bucket and S3Key properties.",
           "SyntaxExpression": "String"
         },
         {
@@ -11063,8 +12621,30 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "For nodejs runtime environments, the source code of your Lambda\nfunction. You cannot use this property with other runtime\nenvironments.",
+          "DocString": "For nodejs and python2.7 runtime environments, the source code of your\nLambda function. You can't use this property with other runtime\nenvironments.",
           "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS Lambda Function VPCConfig",
+      "Href": "aws-properties-lambda-function-vpcconfig.html",
+      "Properties": [
+        {
+          "Name": "SecurityGroupIds",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of one or more security groups IDs in the VPC that includes the\nresources to which your Lambda function requires access.",
+          "SyntaxExpression": "[ String, ... ]"
+        },
+        {
+          "Name": "SubnetIds",
+          "Type": "List of strings",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "A list of one or more subnet IDs in the VPC that includes the\nresources to which your Lambda function requires access.",
+          "SyntaxExpression": "[ String, ... ]"
         }
       ]
     },
@@ -11992,12 +13572,20 @@
           "SyntaxExpression": "Integer"
         },
         {
-          "Name": "NoncurrentVersionTransition",
+          "Name": "NoncurrentVersionTransition (deprecated)",
           "Type": "Amazon S3 Lifecycle Rule NoncurrentVersionTransition",
           "TypeHref": "aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html",
           "TypeName": "",
-          "DocString": "For buckets with versioning enabled (or suspended), specifies when\nnon-current objects transition to a specified storage class. If you\nspecify a transition and expiration time, the expiration time must be\nlater than the transition time.",
+          "DocString": "For buckets with versioning enabled (or suspended), specifies when\nnon-current objects transition to a specified storage class. If you\nspecify a transition and expiration time, the expiration time must be\nlater than the transition time. If you specify this property, don't\nspecify the NoncurrentVersionTransitions property.",
           "SyntaxExpression": "NoncurrentVersionTransition type"
+        },
+        {
+          "Name": "NoncurrentVersionTransitions",
+          "Type": "List of Amazon S3 Lifecycle Rule NoncurrentVersionTransition",
+          "TypeHref": "aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html",
+          "TypeName": "",
+          "DocString": "For buckets with versioning enabled (or suspended), one or more\ntransition rules that specify when non-current objects transition to a\nspecified storage class. If you specify a transition and expiration\ntime, the expiration time must be later than the transition time. If\nyou specify this property, don't specify the\nNoncurrentVersionTransition property.",
+          "SyntaxExpression": "[ NoncurrentVersionTransition type, ... ]"
         },
         {
           "Name": "Prefix",
@@ -12016,12 +13604,20 @@
           "SyntaxExpression": "String"
         },
         {
-          "Name": "Transition",
+          "Name": "Transition (deprecated)",
           "Type": "Amazon S3 Lifecycle Rule Transition",
           "TypeHref": "aws-properties-s3-bucket-lifecycleconfig-rule-transition.html",
           "TypeName": "",
-          "DocString": "Specifies when an object transitions to a specified storage class. If\nyou specify an expiration and transition time, you must use the same\ntime unit for both properties (either in days or by date). The\nexpiration time must also be later than the transition time.",
+          "DocString": "Specifies when an object transitions to a specified storage class. If\nyou specify an expiration and transition time, you must use the same\ntime unit for both properties (either in days or by date). The\nexpiration time must also be later than the transition time. If you\nspecify this property, don't specify the Transitions property.",
           "SyntaxExpression": "Transition type"
+        },
+        {
+          "Name": "Transitions",
+          "Type": "List of Amazon S3 Lifecycle Rule Transition",
+          "TypeHref": "aws-properties-s3-bucket-lifecycleconfig-rule-transition.html",
+          "TypeName": "",
+          "DocString": "One or more transition rules that specify when an object transitions\nto a specified storage class. If you specify an expiration and\ntransition time, you must use the same time unit for both properties\n(either in days or by date). The expiration time must also be later\nthan the transition time. If you specify this property, don't specify\nthe Transition property.",
+          "SyntaxExpression": "[ Transition type, ... ]"
         }
       ]
     },
@@ -12658,7 +14254,7 @@
           "Type": "String",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "A unique identifier for the predicate.",
+          "DocString": "The unique identifier of a predicate, such as the ID of a ByteMatchSet\nor IPSet.",
           "SyntaxExpression": "String"
         },
         {
@@ -12666,7 +14262,7 @@
           "Type": "Boolean",
           "TypeHref": "",
           "TypeName": "",
-          "DocString": "Whether to use the settings or the negated settings that you specified\nin the ByteMatchSet, IPSet, or SqlInjectionMatchSet objects.",
+          "DocString": "Whether to use the settings or the negated settings that you specified\nin the ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet,\nor XssMatchSet objects.",
           "SyntaxExpression": "Boolean"
         },
         {
@@ -12675,6 +14271,66 @@
           "TypeHref": "",
           "TypeName": "",
           "DocString": "The type of predicate in a rule, such as an IPSet (IPMatch). For valid\nvalues, see the Type contents of the Predicate data type in the AWS\nWAF API Reference.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS WAF SizeConstraintSet SizeConstraint",
+      "Href": "aws-properties-waf-sizeconstraintset-sizeconstraint.html",
+      "Properties": [
+        {
+          "Name": "ComparisonOperator",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The type of comparison that you want AWS WAF to perform. AWS WAF uses\nthis value in combination with the Size and FieldToMatch property\nvalues to check if the size constraint is a match. For more\ninformation and valid values, see the ComparisonOperator content for\nthe SizeConstraint data type in the AWS WAF API Reference.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "FieldToMatch",
+          "Type": "AWS WAF SizeConstraintSet SizeConstraint FieldToMatch",
+          "TypeHref": "aws-properties-waf-sizeconstraintset-sizeconstraint-fieldtomatch.html",
+          "TypeName": "",
+          "DocString": "The part of a web request that you want AWS WAF to search, such as a\nspecific header or a query string.",
+          "SyntaxExpression": "Field to match"
+        },
+        {
+          "Name": "Size",
+          "Type": "Integer",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The size in bytes that you want AWS WAF to compare against the size of\nthe specified FieldToMatch. AWS WAF uses Size in combination with the\nComparisonOperator and FieldToMatch property values to check if the\nsize constraint of a web request is a match. For more information and\nvalid values, see the Size content for the SizeConstraint data type in\nthe AWS WAF API Reference.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "TextTransformation",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Specifies how AWS WAF processes the FieldToMatch property before\ninspecting a request for a match. Text transformations eliminate some\nof the unusual formatting that attackers use in web requests in an\neffort to bypass AWS WAF. If you specify a transformation, AWS WAF\ntransforms the FieldToMatch before inspecting a web request for a\nmatch.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS WAF SizeConstraintSet SizeConstraint FieldToMatch",
+      "Href": "aws-properties-waf-sizeconstraintset-sizeconstraint-fieldtomatch.html",
+      "Properties": [
+        {
+          "Name": "Data",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "If you specify HEADER for the Type property, the name of the header\nthat AWS WAF searches for, such as User-Agent or Referer. If you\nspecify any other value for the Type property, do not specify this\nproperty.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Type",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The part of the web request in which AWS WAF searches for the target\nstring. For valid values, see FieldToMatch in the AWS WAF API\nReference.",
           "SyntaxExpression": "String"
         }
       ]
@@ -12704,6 +14360,50 @@
     {
       "Name": "AWS WAF SqlInjectionMatchSet SqlInjectionMatchTuples FieldToMatch",
       "Href": "aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples-fieldtomatch.html",
+      "Properties": [
+        {
+          "Name": "Data",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "If you specify HEADER for the Type property, the name of the header\nthat AWS WAF searches for, such as User-Agent or Referer. If you\nspecify any other value for the Type property, do not specify this\nproperty.",
+          "SyntaxExpression": "String"
+        },
+        {
+          "Name": "Type",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "The part of the web request in which AWS WAF searches for the target\nstring. For valid values, see FieldToMatch in the AWS WAF API\nReference.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS WAF XssMatchSet XssMatchTuple",
+      "Href": "aws-properties-waf-xssmatchset-xssmatchtuple.html",
+      "Properties": [
+        {
+          "Name": "FieldToMatch",
+          "Type": "AWS WAF XssMatchSet XssMatchTuple FieldToMatch",
+          "TypeHref": "aws-properties-waf-xssmatchset-xssmatchtuple-fieldtomatch.html",
+          "TypeName": "",
+          "DocString": "The part of a web request that you want AWS WAF to search, such as a\nspecific header or a query string.",
+          "SyntaxExpression": "Field to match"
+        },
+        {
+          "Name": "TextTransformation",
+          "Type": "String",
+          "TypeHref": "",
+          "TypeName": "",
+          "DocString": "Specifies how AWS WAF processes the FieldToMatch property before\ninspecting a request for a match. Text transformations eliminate some\nof the unusual formatting that attackers use in web requests in an\neffort to bypass AWS WAF. If you specify a transformation, AWS WAF\ntransforms theFieldToMatch parameter before inspecting a web request\nfor a match.",
+          "SyntaxExpression": "String"
+        }
+      ]
+    },
+    {
+      "Name": "AWS WAF XssMatchSet XssMatchTuple FieldToMatch",
+      "Href": "aws-properties-waf-xssmatchset-xssmatchtuple-fieldtomatch.html",
       "Properties": [
         {
           "Name": "Data",
